@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b7cd1acf-a6bb-4947-b0bb-6f2b6d6a1e04" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mariadb_java_client_3_5_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagement.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagement_v1.2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagement_v1.2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagement_v1.2/LibraryManagement_v2.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagement_v1.2/LibraryManagement_v2.0.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagement_v1.2/src/LibraryMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagement_v1.2/src/LibraryMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagement_v1.2/src/LibraryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagement_v1.2/src/LibraryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryManagement_v1.2/src/LibraryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryManagement_v1.2/src/LibraryRepository.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3DeJP6oFGW4i2mi4kYujCPnKIdQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/01_Application Security/LibraryManagement/LibraryManagement_v1.2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true",
+    "애플리케이션.LibraryMain.executor": "Run"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="b7cd1acf-a6bb-4947-b0bb-6f2b6d6a1e04" name="변경" comment="" />
+      <created>1778636575190</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778636575190</updated>
+      <workItem from="1778636576658" duration="600000" />
+      <workItem from="1778637196051" duration="74000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
