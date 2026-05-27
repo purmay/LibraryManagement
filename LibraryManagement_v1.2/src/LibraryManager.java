@@ -57,6 +57,9 @@ public class LibraryManager {
         return currentUser;
     }
 
+//    public void setCurretUser(String user) {
+//        this.currentUser = user;
+//    }
 
     public void addBook(String title, String author) {
         bookCount++;
@@ -81,10 +84,12 @@ public class LibraryManager {
 
     /**
      * 도서를 시스템에서 삭제합니다.
+     * <p>삭제하는 메서드 호출 추가-Ref: Github Issue #1(2026.05.20; 남수만)</p>
+     *
      * @param id 삭제할 도서 ID
      * @return 삭제 성공 여부
      *
-     * @see <a href="https://github.com/sumannam/Java/issues/44">Issue #44: Admin 계정에서 책 데이터를 삭제</a>
+     * @see <a href="https://github.com/sumannam/LibraryManagement/issues/1">Issue #1: 한 책 삭제 시 DB에서 해당 책이 삭제 안됨</a>
      */
     public boolean deleteBook(int id) {
         repository.deleteBook(id);
