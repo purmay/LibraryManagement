@@ -141,4 +141,19 @@ class LibraryRepositoryTest {
         // 3. 데이터베이스 카운트가 0이어야 삭제 쿼리가 완벽하게 반영된 것이다
         assertEquals(0, recordCount, "삭제 쿼리가 정상 작동했다면 해당 ID의 카운트는 0이어야 합니다.");
     }
+
+    @Test
+    @DisplayName("보안 테스트: SQL Injection 우회 공격 차단 검증")
+    void testSQLInjectionMitigation() {
+        // Given: 아까 콘솔에서 테스트했던 악의적인 SQL Injection 공격용 아이디값 세팅
+        String attackId = "admin' -- ";
+        String wrongPassword = "any_wrong_password";
+
+        // When: 아까 수정한 loadUser(PreparedStatement 적용)를 호출함
+        // 만약 취약점이 제대로 패치되었다면 공격 구문 전체를 '순수 문자열 ID'로 조회하므로 null이 반환되어야 함!
+        User user = repository.loadUser(attackId, wrongPassword);
+
+        // Then: 검증 - 결과가 반드시 null이어야 인증 우회 공격이 성공적으로 차단된 것임
+        assertNull(user, "SQL Injection 공격 구문이 주입되었으므로 로그인이 거부되어 User 객체는 null이어야 합니다.");
+    }
 }
