@@ -1,5 +1,6 @@
 import java.util.*;
-/**/
+import java.io.*;
+
 /**
  * 도서 관리 시스템의 메인 클래스
  * <p>사용자 인터페이스(CLI)를 제공하며, DB 연결하여 권한에 따른 메뉴 출력 및 사용자 입력을 처리합니다.</p>
@@ -336,14 +337,31 @@ public class LibraryMain {
     }
 
     /**
-     * 서버의 네트워크 상태를 진단하기 위한 인터페이스를 제공합니다.
+     * 🚨 [보안 결함 상태] 서버의 네트워크 상태를 진단하는 기능 (OS Command Injection 취약점 포함)
      */
     private static void checkServerUI() {
         System.out.println("\n[서버 네트워크 진단]");
         System.out.print("- 접속을 확인 할 IP 주소를 입력하세요: ");
         String ip = sc.nextLine();
 
-        manager.checkServerStatus(ip);
+        // ❌ 취약한 부분: 입력값 ip에 대한 아무런 필터링(검증) 없이 OS 명령어로 조립함
+        String command = "cmd.exe /c ping -n 1 " + ip;
+        System.out.println("[시스템 실행 명령어]: " + command);
+
+        try {
+            // 외부 OS 명령어를 직접 호출 및 실행
+            Process process = Runtime.getRuntime().exec(command);
+
+            // 실행 결과를 콘솔 화면에 뿌려주기 위한 버퍼 스트림 생성
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream(), "EUC-KR"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            process.waitFor();
+        } catch (Exception e) {
+            System.out.println("[오류] 명령어 실행 중 예외 발생: " + e.getMessage());
+        }
     }
 
     /**
