@@ -1,5 +1,6 @@
 import java.util.*;
-/**/
+import java.io.*;
+
 /**
  * 도서 관리 시스템의 메인 클래스
  * <p>사용자 인터페이스(CLI)를 제공하며, DB 연결하여 권한에 따른 메뉴 출력 및 사용자 입력을 처리합니다.</p>
@@ -336,14 +337,40 @@ public class LibraryMain {
     }
 
     /**
-     * 서버의 네트워크 상태를 진단하기 위한 인터페이스를 제공합니다.
+     * 🛡️ [보안 패치 완료] 서버의 네트워크 상태를 진단하는 기능 (OS Command Injection 방어 적용)
      */
     private static void checkServerUI() {
         System.out.println("\n[서버 네트워크 진단]");
         System.out.print("- 접속을 확인 할 IP 주소를 입력하세요: ");
-        String ip = sc.nextLine();
+        String ip = sc.nextLine().trim();
 
-        manager.checkServerStatus(ip);
+        // 🛡️ 보안 필터링: 오직 숫자와 마침표(.)로만 구성된 안전한 IP 주소 형식인지 정규식 검증
+        // 공격자가 주입한 '&', '|', ';', 'dir' 등의 특수문자나 추가 명령어를 원천 차단합니다.
+        String ipPattern = "^[0-9.]+$";
+
+        if (ip.isEmpty() || !ip.matches(ipPattern)) {
+            System.out.println("\n[보안 경고] 올바르지 않은 IP 주소 형식입니다. 특수문자나 추가 OS 명령어는 입력할 수 없습니다.");
+            return; // 취약한 exec() 메서드로 도달하지 못하도록 즉시 차단 후 리턴
+        }
+
+        // 검증을 통과한 안전한 IP 값만 OS 명령어로 조립되어 실행됨
+        String command = "cmd.exe /c ping -n 1 " + ip;
+        System.out.println("[시스템 실행 명령어]: " + command);
+
+        try {
+            // 외부 OS 명령어 호출
+            Process process = Runtime.getRuntime().exec(command);
+
+            // 실행 결과를 콘솔 화면에 출력하기 위한 버퍼 스트림
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream(), "EUC-KR"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            process.waitFor();
+        } catch (Exception e) {
+            System.out.println("[오류] 명령어 실행 중 예외 발생: " + e.getMessage());
+        }
     }
 
     /**
